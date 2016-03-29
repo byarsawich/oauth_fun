@@ -3,28 +3,32 @@ Rails.application.routes.draw do
   get 'dashboard/index'
 
   get 'omnioauth/index'
-
   get 'omnioauth/show'
-
   get 'omnioauth/create'
 
   get 'oauth/index'
-
   get 'oauth/show'
-
   get 'oauth/create'
 
   get 'restclient_oauth/index'
-
   get 'restclient_oauth/show'
-
   get 'restclient_oauth/create'
 
   get 'simple_oauth/index'
-
   get 'simple_oauth/show'
-
   get 'simple_oauth/create'
+
+  #NET::HTTP route
+  # get "/auth/github/callback" => "simple_oauth#create"
+
+  #Restclient route
+  # get "/auth/github/callback" => "restclient_oauth#create"
+
+  #OAuth gem route
+  get "/auth/github/callback" => "oauth#create"
+
+  #omnioauth route
+  # get "/auth/:provider/callback" => "omnioauth#create"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
